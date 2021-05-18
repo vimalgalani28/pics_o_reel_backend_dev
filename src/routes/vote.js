@@ -68,7 +68,6 @@ router.post("/", auth, async (req, res) => {
           if (entry.section.toLowerCase() !== req.body.section.toLowerCase()) {
             return res.send("Section mismatch!");
           }
-          console.log("here");
 
           entry.voteCount += 1;
 
