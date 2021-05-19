@@ -3,6 +3,8 @@ const getEntries = (entry) => {
     delete entryObject.voteCount
     delete entryObject.driveId
     delete entryObject.imageViewLink
+    delete entryObject.ownerName
+    delete entryObject.ownerPhone
     return entryObject
 }
 

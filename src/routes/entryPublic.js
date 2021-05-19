@@ -3,6 +3,7 @@ import Entry from "../models/entries.js";
 import authcoord from "../middlewares/authCoord.js";
 import auth from "../middlewares/auth.js";
 import User from "../models/user.js";
+import { getEntries } from '../utils/entries.js';
 
 const router = new express.Router();
 
@@ -10,11 +11,11 @@ router.get("/allentries", auth, async (req, res) => {
   try {
     if (!req.query.section) {
       const entries = await Entry.find({});
-      return res.send(entries);
+      return res.send(entries.map((ent) => getEntries(ent)));
     }
     const section = req.query.section;
     const entries = await Entry.find({ section });
-    res.send(entries);
+    res.send(entries.map((ent) => getEntries(ent)));
   } catch (e) {
     res.send({
       status: 500,
