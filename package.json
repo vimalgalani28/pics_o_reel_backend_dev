@@ -1,27 +1,38 @@
 {
-  "name": "picsoreel-backend",
+  "name": "pics_o_reel_backend_dev",
   "version": "1.0.0",
-  "type": "module",
+  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
-    "start": "nodemon src/index.js"
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vimalgalani28/pics_o_reel_backend_dev.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vimalgalani28/pics_o_reel_backend_dev/issues"
+  },
+  "homepage": "https://github.com/vimalgalani28/pics_o_reel_backend_dev#readme",
   "dependencies": {
-    "aws-sdk": "^2.903.0",
-    "dotenv": "^9.0.2",
-    "express": "^4.17.1",
-    "image-thumbnail": "^1.0.13",
+    "aws-sdk": "^2.1062.0",
+    "dotenv": "^14.3.0",
+    "express": "^4.17.2",
+    "image-thumbnail": "^1.0.14",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.4",
+    "mongoose": "^6.1.8",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2"
+    "multer": "^1.4.4",
+    "sharp": "^0.29.3"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.15"
   }
 }
