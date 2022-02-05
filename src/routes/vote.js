@@ -58,8 +58,8 @@ router.post("/", auth, async (req, res) => {
       user.hasVotedPhotography = true;
       await user.save();
       return res.send(user.hasVotedPhotography);
-    } else if (req.body.section.toLowerCase() === "independence") {
-      if (!user.hasVotedIndependence) {
+    } else if (req.body.section.toLowerCase() === "crafts") {
+      if (!user.hasVotedCrafts) {
         req.body.votedEntries.map(async (id) => {
           const entry = await Entry.findOne({ _id: id });
           if (!entry) {
@@ -76,9 +76,9 @@ router.post("/", auth, async (req, res) => {
       } else {
         return res.send({ error: "Already Voted" });
       }
-      user.hasVotedIndependence = true;
+      user.hasVotedCrafts = true;
       await user.save();
-      return res.send(user.hasVotedIndependence);
+      return res.send(user.hasVotedCrafts);
     }
   } catch (e) {
     res.send(e);

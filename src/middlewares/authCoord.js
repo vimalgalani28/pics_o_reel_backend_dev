@@ -10,12 +10,9 @@ const authCoord = async (req, res, next) => {
       throw new Error();
     }
     if (
-      user.displayName === "22161_Ashutosh" ||
-      user.displayName === "22151_Rushikesh" ||
-      user.displayName === "22162_Devangini" ||
-      user.displayName === "21127_Vimal" ||
-      user.displayName === "23217_Megha" ||
-      user.displayName === "33362_Rohit"
+      user.displayName === "32159_Ashutosh_21_22" ||
+      user.displayName === "31406_Rohin_21_22" ||
+      user.displayName === "31127_Vimal_21_22"
     ) {
       req.user = user;
       req.token = token;

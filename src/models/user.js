@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       default: false,
     },
-    hasVotedIndependence: {
+    hasVotedCrafts: {
       type: Boolean,
       required: true,
       default: false,

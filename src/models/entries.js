@@ -39,10 +39,10 @@ const entrySchema = new mongoose.Schema(
         if (
           value !== "Painting" &&
           value !== "Photography" &&
-          value !== "Calligraphy" &&
-          value !== "Independence"
+          value !== "Crafts" &&
+          value !== "Others"
         ) {
-          throw new Error("Only Painting and Photography is allowed");
+          throw new Error("Only Painting & Photography is allowed");
         }
       },
     },
