@@ -39,16 +39,11 @@ router.get("/leaderboard", authcoord, async (req, res) => {
       ({ section }) => section === "Others"
     ).length;
 
-    const craftsCount = entries.filter(
-      ({ section }) => section === "Crafts"
-    ).length;
-
     return res.send({
       entries,
       paintingCount,
       photographyCount,
       othersCount,
-      craftsCount,
     });
   } catch (e) {
     res.send({
