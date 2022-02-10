@@ -15,10 +15,10 @@ const s3 = new AWS.S3({
 
 const upload = multer({
   limits: {
-    fileSize: 7000000,
+    fileSize: 12000000,
   },
   fileFilter(req, file, cb) {
-    if (!file.originalname.match(/\.(jpeg|jpg|png|svg)$/)) {
+    if (!file.originalname.match(/\.(jpeg|jpg|png|svg|JPEG|JPG|PNG|SVG)$/)) {
       return cb(new Error("Please upload an image"));
     }
     cb(undefined, true);
@@ -48,7 +48,7 @@ router.post(
     const number = existentries.length + 1;
     const params = {
       Bucket: process.env.AWS_BUCKET_NAME,
-      Key: `${req.user.displayName}_${req.body.section}_${number}.${fileType}`,
+      Key: `${req.user._id}_${req.body.section}_${number}.${fileType}`,
       Body: req.file.buffer,
     };
     s3.upload(params, (error, data) => {
@@ -61,7 +61,7 @@ router.post(
       const imageBucketLink = data.Location;
       const thumbParams = {
         Bucket: process.env.AWS_BUCKET_NAME,
-        Key: `${req.user.displayName}_${req.body.section}_${number}_thumb.${fileType}`,
+        Key: `${req.user._id}_${req.body.section}_${number}_thumb.${fileType}`,
         Body: thumbnail,
       };
       s3.upload(thumbParams, async (errorThumb, dataThumb) => {
