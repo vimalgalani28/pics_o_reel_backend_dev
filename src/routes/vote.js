@@ -58,27 +58,6 @@ router.post("/", auth, async (req, res) => {
       user.hasVotedPhotography = true;
       await user.save();
       return res.send(user.hasVotedPhotography);
-    } else if (req.body.section.toLowerCase() === "crafts") {
-      if (!user.hasVotedCrafts) {
-        req.body.votedEntries.map(async (id) => {
-          const entry = await Entry.findOne({ _id: id });
-          if (!entry) {
-            return res.status(404).send();
-          }
-          if (entry.section.toLowerCase() !== req.body.section.toLowerCase()) {
-            return res.send("Section mismatch!");
-          }
-
-          entry.voteCount += 1;
-
-          await entry.save();
-        });
-      } else {
-        return res.send({ error: "Already Voted" });
-      }
-      user.hasVotedCrafts = true;
-      await user.save();
-      return res.send(user.hasVotedCrafts);
     }
   } catch (e) {
     res.send(e);
