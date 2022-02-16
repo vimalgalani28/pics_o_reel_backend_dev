@@ -15,7 +15,9 @@ const authCoord = async (req, res, next) => {
       user.displayName === "31127_Vimal_21_22" ||
       user.displayName === "31230_Sharayu_21_22" ||
       user.displayName === "32118_Meghna_21_22" ||
-      user.displayName === "32162_Rhuchita_21_22"
+      user.displayName === "32162_Rhuchita_21_22" ||
+      user.displayName === "21361_NIDHI_21_22" ||
+      user.displayName === "21152_MAHAVEER_21_22"
     ) {
       req.user = user;
       req.token = token;
